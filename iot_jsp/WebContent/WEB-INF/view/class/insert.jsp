@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>유저 입력</title>
+<title>클래스 입력</title>
 </head>
 <body>
 <%

@@ -46,9 +46,13 @@ public class UserServlet extends HttpServlet {
 		String cmd = getCommand(uri);
 		if (cmd.equals("list")) {
 			req.setAttribute("list", us.getUserList());
-		} else if (cmd.equals("view")) {
-//			us.getUser();
-		} else {
+		} else if (cmd.equals("insert")) {
+			req.setAttribute("insert", us.getInsertResult());
+		} else if (cmd.equals("update")){
+			req.setAttribute("update", us.getUpdateResult());
+		} else if (cmd.equals("delete")){
+			req.setAttribute("delete", us.getDeleteResult());
+		}else {
 			cmd = "/common/error";
 		}
 		uri = "/WEB-INF/view" + uri + ".jsp";

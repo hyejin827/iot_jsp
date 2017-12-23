@@ -1,5 +1,5 @@
-<%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/view/common/common.jsp"%>
@@ -8,13 +8,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>유저 입력</title>
+<title>클래스 리스트</title>
 </head>
 <body>
 <%
-String resultStr = null;
-resultStr = request.getAttribute("insert").toString();
-out.println(resultStr);
+ArrayList<HashMap<String, Object>> classList = null;
+classList = (ArrayList<HashMap<String, Object>>)request.getAttribute("list");
+out.println(classList);
 %>
 </body>
 </html>

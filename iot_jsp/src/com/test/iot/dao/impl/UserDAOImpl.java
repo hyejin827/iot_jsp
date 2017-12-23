@@ -28,7 +28,6 @@ public class UserDAOImpl implements UserDAO{
 				hm.put("uiid", rs.getString("uiid"));
 				hm.put("uipwd", rs.getString("uipwd"));
 				hm.put("cino", rs.getString("cino"));
-				hm.put("uiregdate", rs.getString("uiregdate"));
 				hm.put("address", rs.getString("address"));
 				userList.add(hm);
 			}
@@ -42,6 +41,72 @@ public class UserDAOImpl implements UserDAO{
 	public HashMap<String, Object> selectUser() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String insertUser() {
+		PreparedStatement ps = null;
+		String resultStr = null;
+		int result=0;
+		String sql = "insert into user_info(uiname,uiage,uiid,uipwd,cino,address) values ('케빈',8,'alone','alone',1,'나홀로집에')";
+		try {
+			ps = DBCon.getCon().prepareStatement(sql);
+			result = ps.executeUpdate();
+			
+			if(result>=1) {
+				resultStr = "입력성공!";
+			}else {
+				resultStr = "입력실패!";
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultStr;
+	}
+
+	@Override
+	public String updateUser() {
+		PreparedStatement ps = null;
+		String resultStr = null;
+		int result=0;
+		String sql = "update user_info set uiage=100 where uiname='케빈'";
+		try {
+			ps = DBCon.getCon().prepareStatement(sql);
+			result = ps.executeUpdate();
+			
+			if(result>=1) {
+				resultStr = "업데이트성공!";
+			}else {
+				resultStr = "업데이트실패!";
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultStr;
+	}
+
+	@Override
+	public String deleteUser() {
+		PreparedStatement ps = null;
+		String resultStr = null;
+		int result=0;
+		String sql = "delete from user_info where uiname='케빈'";
+		try {
+			ps = DBCon.getCon().prepareStatement(sql);
+			result = ps.executeUpdate();
+			
+			if(result>=1) {
+				resultStr = "삭제성공!";
+			}else {
+				resultStr = "삭제실패!";
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return resultStr;
 	}
 
 }

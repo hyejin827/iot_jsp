@@ -26,4 +26,25 @@ public class UserServiceImpl implements UserService{
 		return null;
 	}
 
+	@Override
+	public String getInsertResult() {
+		Connection con = DBCon.getCon();
+		String result = ud.insertUser();
+		return result;
+	}
+
+	@Override
+	public String getUpdateResult() {
+		Connection con = DBCon.getCon();
+		String result = ud.updateUser();
+		return result;
+	}
+
+	@Override
+	public String getDeleteResult() {
+		Connection con = DBCon.getCon();
+		String result = ud.deleteUser();
+		return result;
+	}
+
 }
