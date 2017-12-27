@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+
+//alert(tt); //이건 실행안됨. tt의 생명주기는 밑에줄부터! function은 다름 시작할때 읽음
+//var tt = "123";
+function test(str){
+	window.alert(str + "test");
+}
+//test();
+//test(null);
+//test("123");
+
+var func = function(str){
+	var str = str;
+	alert(str);
+	this.test = function(){
+		alert("호출");
+	}
+	this.test();
+}
+
+var f = new func("123");
+alert(f); //f에 값이 들어간게 아니라 통로역할..
+
+var func2 = function(num1, num2, op){
+	var add = function(){
+		return num1+num2;
+	}
+	var multiple = function(){
+		return num1*num2;
+	}
+	this.cal = function(){
+		if(op=="+"){
+			return add();
+		}else if(op=="*"){
+			return multiple();
+		}
+	}
+}
+
+var f = new func2(1,2,"+");
+alert(f.cal());
+//alert(new func(1,4,"+").cal()); 이렇게 써도됨.
+</script>
+<body>
+
+</body>
+</html>
