@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var rNum = Math.floor(Math.random() * 9) + 1;
+	alert(rNum);
+
+	function bomb() {
+		for (var i = 1; i < 10; i++) {
+			btnObj = document.getElementById(i).value;
+			if (rNum == btnObj) {
+				alert("뻥!");
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<input type="button" id="1" value="1" onclick="bomb()">
+	<input type="button" id="2" value="2" onclick="bomb()">
+	<input type="button" id="3" value="3" onclick="bomb()">
+	<br>
+	<input type="button" id="4" value="4" onclick="bomb()">
+	<input type="button" id="5" value="5" onclick="bomb()">
+	<input type="button" id="6" value="6" onclick="bomb()">
+	<br>
+	<input type="button" id="7" value="7" onclick="bomb()">
+	<input type="button" id="8" value="8" onclick="bomb()">
+	<input type="button" id="9" value="9" onclick="bomb()">
+</body>
+</html>
