@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script src="/js/test.js"></script>
+<script src="/js/jquery-3.2.1.js"></script>
+
+<script>
+function checkValue(fobj){
+	var objs = $("input[data-val]");
+	for(var obj of objs){
+		var len = parseInt(obj.getAttribute("data-val"));
+		var value = obj.value.trim();
+		if(value.length<len){
+			alert(obj.getAttribute("data-msg"));
+			obj.value="";
+			obj.focus();
+			return false;
+		}
+	}
+	return true;
+}
+</script>
+
+<body>
+<form method="get" action="./location.html" onsubmit="return checkValue(this)">
+	<h2 id="hText" class="form-signin=heading">로그인</h2>
+	아이디 : <input type="text" name="userId" id="userId" data-val="5" data-msg="아이디입력행!">
+	<br>
+	비밀번호 : <input type="password" name="userPwd" id="userPwd" data-val="5" data-msg="비밀번호입력행!">
+	<br>
+	<input type="submit" id="loginBtn" value="로그인">
+</form>
+</body>
+</html>

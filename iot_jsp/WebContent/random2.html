@@ -6,28 +6,33 @@
 <script>
 	var rNum = Math.floor(Math.random() * 9) + 1;
 	alert(rNum);
+	
+	function printAlert(){
+		alert("뻥뻐어뻥");
+	}
 
 	function bomb() {
-		for (var i = 1; i < 10; i++) {
-			btnObj = document.getElementById(i).value;
-			if (rNum == btnObj) {
-				alert("뻥!");
+		var inputs = document.getElementsByTagName("input");
+		for (var i = 0; i < inputs.length; i++) {
+			var obj = inputs[i];
+			if (rNum == obj.value) {
+				obj.onclick = printAlert; //obj.onclick = function(){alert("뻥뻥!!!")}; 이렇게 써도됨
 			}
 		}
 	}
 </script>
 </head>
-<body>
-	<input type="button" id="1" value="1" onclick="bomb()">
-	<input type="button" id="2" value="2" onclick="bomb()">
-	<input type="button" id="3" value="3" onclick="bomb()">
+<body onload="bomb()">
+	<input type="button" id="1" value="1">
+	<input type="button" id="2" value="2">
+	<input type="button" id="3" value="3">
 	<br>
-	<input type="button" id="4" value="4" onclick="bomb()">
-	<input type="button" id="5" value="5" onclick="bomb()">
-	<input type="button" id="6" value="6" onclick="bomb()">
+	<input type="button" id="4" value="4">
+	<input type="button" id="5" value="5">
+	<input type="button" id="6" value="6">
 	<br>
-	<input type="button" id="7" value="7" onclick="bomb()">
-	<input type="button" id="8" value="8" onclick="bomb()">
-	<input type="button" id="9" value="9" onclick="bomb()">
+	<input type="button" id="7" value="7">
+	<input type="button" id="8" value="8">
+	<input type="button" id="9" value="9">
 </body>
 </html>
